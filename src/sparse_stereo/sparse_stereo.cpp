@@ -335,6 +335,6 @@ void SparseStereo::update(std::vector<cv::Point> &pointsL, const cv::Mat &imgL,
 
   match(transfmData1, transfmData2, matches);
   for (auto m : matches) {
-    disparity.push_back((m.queryIdx - m.trainIdx));
+    disparity.push_back((pointsL[m.queryIdx].x - pointsR[m.trainIdx].x));
   }
 }
